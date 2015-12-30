@@ -1,6 +1,7 @@
 package com.dk;
 
 import com.dk.test.GetJsonData1;
+import com.dk.util.PropUtils;
 //import org.json.JSONException;
 
 //import javax.ws.rs.*;
@@ -9,6 +10,7 @@ import javax.ws.rs.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 /**
  * Created by zzy on 15/12/23.
@@ -71,7 +73,11 @@ public class GetEsData1 {
             return "url error";
         }
 
-        String ip = "223.99.175.58:9021";
+
+//        String ip = "223.99.175.58:9021";
+        Properties properties = PropUtils.getProp("jesery-web.profperties");
+       String  ip =  properties.getProperty("ipport");
+
         String url1 = "http://" +ip + "/dkcor/type1/_search?q=";
 //        String url1 = "http://" +ip + "/dkcor/type1/";
 //        parm = "15090718473473561512181615305272";
